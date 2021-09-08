@@ -3,7 +3,7 @@ import './home.scss';
 
 export const Home = () => {
   return (
-    <div>
+    <div className={'home'}>
       Home 页面
     </div>
   );
