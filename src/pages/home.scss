@@ -1,8 +1,56 @@
 @import "../shared/helper";
 
 .home {
-  header{
+  background: rgb(0, 50, 87);
+  background: -moz-linear-gradient(50deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
+  background: -webkit-linear-gradient(50deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
+  background: -o-linear-gradient(50deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
+  background: -ms-linear-gradient(50deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
+  background: linear-gradient(140deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
+
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  > header {
     height: px(99);
-    background-size:cover;
+    background-size: cover;
+  }
+
+  > .home-header-name{
+    text-align: center;
+    margin-top: px(-90);
+    font-size: px(60);
+    color: lightgray;
+  }
+
+  > main {
+    flex: 1;
+    display: grid;
+    grid-template:
+      "box1 box2 box4 box5" 755fr
+      "box3 box3 box4 box5" 363fr / 366fr 361fr 811fr 747fr;
+    grid-column-gap: px(28);
+    grid-row-gap: px(28);
+
+    > .section1 {
+      grid-area: box1;
+    }
+
+    > .section2 {
+      grid-area: box2;
+    }
+
+    > .section3 {
+      grid-area: box3;
+    }
+
+    > .section4 {
+      grid-area: box4;
+    }
+
+    > .section5 {
+      grid-area: box5;
+    }
   }
 }

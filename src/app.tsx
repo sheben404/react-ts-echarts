@@ -5,7 +5,7 @@ import {Config} from './pages/config';
 
 function App() {
   return (
-    <div>
+    <div className={'App'}>
       <HashRouter>
         <Switch>
           <Route exact path={'/'}>
