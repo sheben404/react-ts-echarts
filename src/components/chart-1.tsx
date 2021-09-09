@@ -1,7 +1,9 @@
 import React, {useEffect, useRef} from 'react';
 import * as echarts from 'echarts';
+import px from '../shared/px';
+import baseEchartsOptions from '../shared/base-echarts-options';
+import createEchartsOptions from '../shared/create-echarts-options';
 
-const px = (n: number) => n / 2420 * (window as any).pageWidth;
 export const Chart1 = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
   useEffect(() => {
@@ -9,13 +11,8 @@ export const Chart1 = () => {
     if (divRef.current) {
       myChart = echarts.init(divRef.current);
     }
-    myChart?.setOption({
-      textStyle: {
-        fontSize: px(12),
-        color: '#79839E'
-      },
-      title: {show: false},
-      legend: {show: false},
+    myChart?.setOption(createEchartsOptions({
+      ...baseEchartsOptions,
       xAxis: {
         data: ['东城区', '西城区', '朝阳区', '丰台区', '石景山区', '海淀区', '昌平区', '大兴区', '顺义区'],
         axisTick: {show: false},
@@ -23,7 +20,7 @@ export const Chart1 = () => {
           lineStyle: {color: '#083B70'}
         },
         axisLabel: {
-          margin:px(8),
+          margin: px(8),
           fontSize: px(12),
           formatter(val: any) {
             if (val.length > 2) {
@@ -35,12 +32,6 @@ export const Chart1 = () => {
             }
           }
         },
-      },
-      grid: {
-        x: px(40),
-        y: px(40),
-        x2: px(40),
-        y2: px(40),
       },
       yAxis: {
         splitLine: {show: false},
@@ -56,7 +47,7 @@ export const Chart1 = () => {
         type: 'bar',
         data: [10, 20, 36, 41, 15, 26, 37, 18, 29]
       }]
-    });
+    }));
   }, []);
   return (
     <div className="bordered chart1">
@@ -64,5 +55,5 @@ export const Chart1 = () => {
       <div ref={divRef} className="chart">
       </div>
     </div>
-  )
+  );
 };
