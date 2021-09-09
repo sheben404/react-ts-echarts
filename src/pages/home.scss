@@ -17,6 +17,20 @@
   > header {
     height: px(99);
     background-size: cover;
+    width: px(2420);
+    margin: 0 auto;
+  }
+
+  > footer {
+    height: px(68);
+    width: px(2420);
+    margin: px(20) auto 0 auto;
+    border: 1px solid #0d2d59;
+    border-radius: px(4);
+    background: #062248;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   > .home-header-name {
@@ -27,6 +41,8 @@
   }
 
   > main {
+    width: px(2420);
+    margin: 0 auto;
     flex: 1;
     display: grid;
     grid-template:
@@ -89,7 +105,7 @@
       grid-area: box5;
     }
 
-    .chart1 {
+    .chart1, .chart2 {
       height: px(315);
       display: flex;
       flex-direction: column;
@@ -114,25 +130,6 @@
 
     .chart2 {
       height: px(423);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-      h2 {
-        flex-shrink: 0;
-        border: 1px solid #0a5299;
-        border-bottom-left-radius: 4px;
-        border-bottom-right-radius: 4px;
-        font-size: px(22);
-        line-height: px(24);
-        padding: px(10) px(28);
-        text-shadow: 0 0 px(3) white;
-      }
-
-      .chart {
-        flex: 1;
-        width: 100%;
-      }
 
       .legend {
         display: flex;
