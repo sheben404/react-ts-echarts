@@ -55,10 +55,10 @@ export const Chart7 = () => {
 
       const option = {
         grid: {
-          top: 10,
-          bottom: 30,
-          left: 100,
-          right: 80
+          top: px(10),
+          bottom: px(30),
+          left: px(170),
+          right: px(80)
         },
         xAxis: {
           max: 'dataMax',
