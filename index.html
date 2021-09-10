@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/src/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Echarts 可视化项目</title>
+    <script>
+      const clientWidth = document.documentElement.clientWidth
+      const clientHeight = document.documentElement.clientHeight
+      window.pageWidth = clientWidth / clientHeight > 16 / 9 ? clientHeight * (16 / 9) : clientWidth
+      const pageHeight = pageWidth / (16 / 9)
+      const string = `<style>
+      html{
+        font-size: ${pageWidth / 100}px;
+      }
+    </style>`
+      document.write(string)
+    </script>
+    <script type="module" crossorigin src="./assets/index.5e7c145e.js"></script>
+    <link rel="modulepreload" href="./assets/vendor.1dada56a.js">
+    <link rel="stylesheet" href="./assets/index.6524f418.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      const root = document.querySelector('#root') // 这句话可以省略
+      // root.style.width = pageWidth + 'px'
+      root.style.height = pageHeight + 'px'
+      root.style.marginTop = (clientHeight - pageHeight) / 2 + 'px'
+    </script>
+    
+  </body>
+</html>
