@@ -17,7 +17,7 @@ export const Home = () => {
   return (
     <div className={'home'}>
       <header style={{backgroundImage: `url(${headerBg})`, filter: `blur(50px)`}}></header>
-      <div className={'home-header-name'}>可视化项目</div>
+      <div className={'home-header-name'}>数据可视化项目</div>
       <main>
         <section className="section1">
           <Chart1/>
