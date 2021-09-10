@@ -102,13 +102,22 @@
 
     > .section4 {
       grid-area: box4;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      > .section4-footer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
 
     > .section5 {
       grid-area: box5;
     }
 
-    .chart1, .chart2, .chart3, .chart4, .table1, .map1 {
+    .chart1, .chart2, .chart3, .chart4, .table1, .map1, .chart5, .chart6, .chart7 {
       height: px(315);
       display: flex;
       flex-direction: column;
@@ -161,6 +170,21 @@
 
     .chart3, .chart4 {
       height: px(363);
+    }
+
+    .chart5, .chart6 {
+      height: px(380);
+      width: px(400);
+
+      > .chart {
+        flex: 1;
+        width: 100%;
+        font-size: px(20);
+      }
+    }
+
+    .chart7 {
+      height: 100%;
     }
 
     .table1 {
