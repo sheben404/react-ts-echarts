@@ -3,14 +3,17 @@ import * as echarts from 'echarts';
 import px from '../shared/px';
 import baseEchartsOptions from '../shared/base-echarts-options';
 import createEchartsOptions from '../shared/create-echarts-options';
+import {EChartsType} from 'echarts';
 
 export const Chart6 = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    let myChart;
-    if (divRef.current) {
-      myChart = echarts.init(divRef.current);
-    }
+  let myChart: EChartsType;
+  const data = [
+    [0, 3, 0],
+    [3, 0, 0],
+    [0, 0, 1]
+  ];
+  const updateData = (data: any) => {
     myChart?.setOption(createEchartsOptions({
       ...baseEchartsOptions,
       xAxis: {show: false},
@@ -28,7 +31,7 @@ export const Chart6 = () => {
         }
       },
       angleAxis: {
-        max: 5,
+        max: 6,
         axisLine: {show: false},
         startAngle: 90,
         axisTick: false,
@@ -53,7 +56,7 @@ export const Chart6 = () => {
       },
       series: [{
         type: 'bar',
-        data: [0, 3, 0],
+        data: data.map((item: any) => item[0]),
         coordinateSystem: 'polar',
         name: 'a',
         roundCap: true,
@@ -66,7 +69,7 @@ export const Chart6 = () => {
         }
       }, {
         type: 'bar',
-        data: [3, 0, 0],
+        data: data.map((item: any) => item[1]),
         coordinateSystem: 'polar',
         name: 'b',
         roundCap: true,
@@ -79,7 +82,7 @@ export const Chart6 = () => {
         }
       }, {
         type: 'bar',
-        data: [0, 0, 1],
+        data: data.map((item: any) => item[2]),
         coordinateSystem: 'polar',
         name: '底色',
         roundCap: true,
@@ -92,8 +95,26 @@ export const Chart6 = () => {
           focus: 'series'
         }
       }],
-    }))
+    }));
+  };
+  useEffect(() => {
+    if (divRef.current) {
+      myChart = echarts.init(divRef.current);
+    }
+    updateData(data);
   }, []);
+
+  useEffect(() => {
+    setInterval(() => {
+      const newData = [
+        [0, 3 * Math.random() * 2, 0],
+        [2 * Math.random() * 3, 0, 0],
+        [0, 0, 2 * Math.random() * 4]
+      ]
+      updateData(newData);
+    }, 1000);
+  }, []);
+
   return (
     <div className="bordered chart6">
       <h2>统计图六</h2>

@@ -2,14 +2,13 @@ import React, {useEffect, useRef} from 'react';
 import * as echarts from 'echarts';
 import createEchartsOptions from '../shared/create-echarts-options';
 import px from '../shared/px';
+import {EChartsType} from 'echarts';
 
 export const Chart5 = () => {
   const divRef = useRef<HTMLDivElement | null>(null);
-  useEffect(() => {
-    let myChart;
-    if (divRef.current) {
-      myChart = echarts.init(divRef.current);
-    }
+  let myChart: EChartsType;
+  const data = [50, 40, 28, 26, 42, 21];
+  const updateData = (data: any) => {
     myChart?.setOption(
       {
         radar: {
@@ -43,7 +42,7 @@ export const Chart5 = () => {
           type: 'radar',
           data: [
             {
-              value: [50, 40, 28, 26, 42, 21],
+              value: data,
               name: '实际开销（Actual Spending）'
             }
           ],
@@ -52,7 +51,28 @@ export const Chart5 = () => {
         }]
       }
     );
+  };
+  useEffect(() => {
+
+    if (divRef.current) {
+      myChart = echarts.init(divRef.current);
+    }
+    updateData(data);
   }, []);
+
+  useEffect(() => {
+    setInterval(() => {
+      const newData = [
+        50 * Math.random() * 1.5,
+        40 * Math.random() * 2,
+        28 * Math.random() * 3,
+        26 * Math.random() * 2,
+        42 * Math.random() * 2,
+        21 * Math.random() * 2
+      ];
+      updateData(newData);
+    }, 1000);
+  });
   return (
     <div className="bordered chart5">
       <h2>统计图五</h2>
