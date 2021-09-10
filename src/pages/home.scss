@@ -108,7 +108,7 @@
       grid-area: box5;
     }
 
-    .chart1, .chart2, .chart3, .chart4{
+    .chart1, .chart2, .chart3, .chart4, .table1, .map1 {
       height: px(315);
       display: flex;
       flex-direction: column;
@@ -129,10 +129,6 @@
         flex: 1;
         width: 100%;
       }
-    }
-
-    .chart3, .chart4 {
-      height: px(363);
     }
 
     .chart2 {
@@ -159,6 +155,79 @@
 
         > .second {
           background: linear-gradient(90deg, #b92ae8 0%, #6773e7 100%);
+        }
+      }
+    }
+
+    .chart3, .chart4 {
+      height: px(363);
+    }
+
+    .table1 {
+      > table {
+        margin-top: px(38);
+        border-collapse: collapse;
+
+        th, td {
+          border: 1px solid #1a3671;
+        }
+
+        thead {
+          th {
+            height: px(70);
+            box-shadow: inset 0 0 px(60) 0 #1f3d85;
+          }
+        }
+
+        tbody {
+          td {
+            height: px(50);
+            width: px(84);
+            background: #1c2456;
+          }
+        }
+      }
+    }
+
+    .map1 {
+      height: px(753);
+      background: #062248;
+
+      > .wrapper {
+        position: relative;
+        width: 100%;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .chart {
+          flex: 1;
+        }
+
+        .legend {
+          position: absolute;
+          top: px(40);
+          left: px(20);
+          display: flex;
+          align-items: center;
+          font-size: px(22);
+          padding: px(20) px(10) px(20) 0;
+          border-radius: 0;
+
+          .icon {
+            margin: 0 px(10);
+            display: inline-block;
+            width: px(16);
+            height: px(16);
+            border-radius: 50%;
+            background: #1cecd9;
+          }
+        }
+
+        .notes {
+          position: absolute;
+          bottom: px(10);
+          right: px(10);
         }
       }
     }
