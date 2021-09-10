@@ -1,7 +1,6 @@
 import React from 'react';
 import {HashRouter, Route, Switch} from 'react-router-dom';
 import {Home} from './pages/home';
-import {Config} from './pages/config';
 
 function App() {
   return (
@@ -11,8 +10,8 @@ function App() {
           <Route exact path={'/'}>
             <Home/>
           </Route>
-          <Route exact path={'/config'}>
-            <Config/>
+          <Route exact path={'*'}>
+            404
           </Route>
         </Switch>
       </HashRouter>
