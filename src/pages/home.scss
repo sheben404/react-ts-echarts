@@ -1,10 +1,5 @@
 @import "../shared/helper";
 
-@font-face {
-  font-family: 'ziti';
-  src: local('ziti'), url("../assets/fonts/ziti.ttf");
-}
-
 .home {
   background: rgb(0, 50, 87);
   background: -moz-linear-gradient(50deg, rgb(0, 50, 87) 39%, rgb(3, 35, 109) 94%);
@@ -39,7 +34,6 @@
   }
 
   > .home-header-name {
-    font-family: ziti;
     text-align: center;
     margin-top: px(-90);
     font-size: px(60);
